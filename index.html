@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonicPlay</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        body {
+            background: #121212;
+            color: white;
+        }
+
+        /* Navbar */
+
+        nav {
+            background: black;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            height: 65px;
+            list-style: none;
+            color: white;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        nav ul li {
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        nav ul li:hover {
+            color: #1db954;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .brand img {
+            width: 40px;
+            margin-right: 8px;
+        }
+
+        /* Main */
+
+        .main {
+            padding: 40px;
+        }
+
+        /* Search */
+
+        .topbar {
+            margin-bottom: 20px;
+        }
+
+        .topbar input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+
+        /* Song Cards */
+
+        .songList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            width: 180px;
+            background: #181818;
+            padding: 15px;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .card:hover {
+            background: #242424;
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .playIcon {
+            position: absolute;
+            right: 15px;
+            bottom: 55px;
+            font-size: 30px;
+            opacity: 0;
+            transition: .3s;
+            color: #1db954;
+        }
+
+        .card:hover .playIcon {
+            opacity: 1;
+        }
+
+        /* Artists */
+
+        .artistList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Player */
+
+        .player {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: black;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .controls i {
+            font-size: 30px;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+
+        .controls i:hover {
+            color: #1db954;
+        }
+
+        #myProgressBar {
+            width: 60%;
+            margin-top: 10px;
+        }
+
+        @media (max-width:768px) {
+
+            .songList {
+                justify-content: center;
+            }
+
+            .artistList {
+                justify-content: center;
+            }
+
+            .card {
+                width: 140px;
+            }
+
+            .topbar input {
+                width: 200px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+        <ul>
+
+            <li class="brand">
+                <img src="logo.png"> SonicPlay
+            </li>
+
+            <li><i class="fa-solid fa-house"></i> Home</li>
+            <li><i class="fa-solid fa-music"></i> Library</li>
+            <li><i class="fa-solid fa-heart"></i> Favorites</li>
+
+        </ul>
+    </nav>
+    <hr>
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="topbar">
+            <input type="text" placeholder="Search songs...">
+        </div>
+
+        <h1>Trending Songs</h1>
+
+        <div class="songList">
+
+            <div class="card songItem" data-index="0">
+                <img src="images/cover1.jfif">
+                <h4>Haule Haule</h4>
+                <div class="playIcon">
+                    <i class="fa-solid fa-circle-play"></i>
+                </div>
+            </div>
+
+            <div class="card songItem" data-index="1">
+                <img src="images/cover2.jpg">
+                <h4>Song Two</h4>
+                <div class="playIcon">
+                    <i class="fa-solid fa-circle-play"></i>
+                </div>
+            </div>
+
+            <div class="card songItem" data-index="2">
+                <img src="images/cover3.jpg">
+                <h4>Song Three</h4>
+                <div class="playIcon">
+                    <i class="fa-solid fa-circle-play"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <hr>
+    <!-- Artists -->
+
+    <div class="main">
+
+        <h1>Popular Artists</h1>
+
+        <div class="artistList">
+
+            <div class="card">
+                <img src="images/artist1.jfif">
+                <h4>Arijit Singh</h4>
+            </div>
+
+            <div class="card">
+                <img src="images/artist2.jfif">
+                <h4>yo yo singh</h4>
+            </div>
+
+            <div class="card">
+                <img src="images/artist3.jfif">
+                <h4>Udit Narayan</h4>
+            </div>
+
+            <div class="card">
+                <img src="images/artist4.jfif">
+                <h4>atif Aslam</h4>
+            </div>
+            <div class="card">
+                <img src="images/artist5.jfif">
+                <h4>A.R. Rahman</h4>
+            </div>
+            <div class="card">
+                <img src="images/artist6.jfif">
+                <h4>Vishal-Shekhar</h4>
+            </div>
+            <div class="card">
+                <img src="images/artist7.jfif">
+                <h4>Pritam</h4>
+            </div>
+            <div class="card">
+                <img src="images/artist8.jfif">
+                <h4>Kumar Sanu</h4>
+            </div>
+            <div class="card">
+                <img src="images/artist9.jfif">
+                <h4>Palak muchhal</h4>
+            </div>
+
+
+        </div>
+
+    </div>
+    <hr>
+    <!-- Player -->
+
+    <div class="player">
+
+        <p id="songName">Select a song</p>
+
+        <div class="controls">
+
+            <i class="fa-solid fa-step-backward" id="previous"></i>
+            <i class="fa-solid fa-circle-play" id="masterPlay"></i>
+            <i class="fa-solid fa-step-forward" id="next"></i>
+
+        </div>
+
+        <input type="range" id="myProgressBar" min="0" max="1000">
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
